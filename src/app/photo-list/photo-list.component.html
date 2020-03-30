@@ -1,0 +1,19 @@
+<div *ngIf="showloader">
+    <p class="font-weight-bold">Please wait...</p>
+</div>
+<div class="container photo-list">
+    <div class="row justify-content-center">
+        <div *ngFor="let photo of photoList">
+            <img class="photo m-1 p-1 border border-dark rounded" [src]="getPhoto(photo)" (click)="selectedImage(photo)" width="200" height="200">
+            <div class="text-center" *ngIf="ratedPhoto && ratedPhoto.id && photo.id === ratedPhoto.id; else norating">
+                <span *ngFor="let rate of rating" class="fa fa-star" [ngClass]="{'rate': rate.isClicked}"></span>
+            </div>
+            <ng-template #norating>
+                <div class="text-center">
+                    <span *ngFor="let rate of rating" class="fa fa-star"></span>
+                </div>
+            </ng-template>
+
+        </div>
+    </div>
+</div>

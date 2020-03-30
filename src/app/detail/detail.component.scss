@@ -1,0 +1,15 @@
+.detail {
+    .card-img {
+        object-fit: cover;
+    }
+    .content-body {
+        .title {
+            font-size: 17px;
+            text-transform: capitalize;
+        }
+        .description {
+            font-size: 14px;
+            line-height: 1;
+        }
+    }
+}

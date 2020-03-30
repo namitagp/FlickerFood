@@ -1,0 +1,32 @@
+<div *ngIf="showloader">
+    <p class="font-weight-bold">Please wait...</p>
+</div>
+<div class="container detail">
+    <div class="row justify-content-center">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img [src]="getPhoto()" class="card-img h-100">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body content-body">
+                        <h5 class="card-title title">{{title}}</h5>
+                        <p class="card-text mb-0"> <b>Description</b> </p>
+                        <p class="card-text description">{{description}}</p>
+
+                        <form [formGroup]="form" class="text-center">
+                            <input class="form-control mb-1" type="text" placeholder="Name" formControlName="provider">
+                            <textarea class="form-control mb-1" rows="2" formControlName="reason"></textarea>
+                            <div>
+                                <span *ngFor="let rate of ratingArr" class="fa fa-star" [ngClass]="{'rate': rate.isClicked}" (click)="changeRating(rate)"></span>
+                            </div>
+
+                            <button type="button" class="btn btn-outline-primary" (click)="submit(form)">Submit</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
